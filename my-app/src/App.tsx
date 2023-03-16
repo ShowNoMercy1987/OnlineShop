@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { PageIndex } from "./components/Pages/PageIndex/PageIndex";
 import { PageNotFound } from "./components/Pages/PageNotFound/PageNorFound";
 import { PageCatalog } from "./components/Pages/PageCatalog/PageCatalog";
@@ -14,7 +14,7 @@ import { PageCartEmpty } from "./components/Pages/PageCart/PageCartEmpty";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <HeaderSubTitle />
       <Routes>
@@ -29,7 +29,7 @@ function App() {
         <Route path="/PageCartEmpty" element={<PageCartEmpty />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
