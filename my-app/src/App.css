@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.login_modal {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal_On {
+  opacity: 1;
+  visibility: visible;
+  font-size: 28px;
+  transition: opacity 300ms ease-in;
+  position: fixed !important;
+}
+
+.login_error_on {
+  text-align: center;
+  border-color: #44a0e787;
+  outline: none;
+}
+
+.link {
+  text-decoration: none !important;
+  color: #969696;
+  font-size: 14px;
+}
+
+.link:hover {
+  color: #aaaaaa;
+}
+
+.block_hover:hover .text_hover {
+  color: #ffffff !important;
+  transition-duration: 0.4s;
+  transition-property: color;
+}
+
+.img {
+  height: 60px;
+}
+
+.img-cart {
+  height: 80px;
+}
+
+.img-about {
+  height: 180px;
+}
+
+.heart {
+  cursor: pointer;
+}
+
+.heart:hover {
+  fill: #c81717;
+}
+
+.heart:active {
+  fill: #a81313;
+}
+
+.active-btn {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+.plus-minus-btn:hover{
+  border-color: #c81717;
+}
+
+.plus-minus-btn:active{
+  border-color: #a81313;
+}
+
+.plus-minus-btn:hover .btn_hover{
+  color: #c81717;
+}
+
+.plus-minus-btn:active .btn_hover{
+  color: #a81313;
+}
