@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { IProduct } from "../../../../Data/Products";
 import axios, { AxiosError } from "axios";
 import { IndexSeazonCard } from "./IndexSeazonCard";
-
+import { IndexSceletonSeazon } from "./IndexSeazonSceleton";
 
 export const IndexSeazon = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -36,7 +36,7 @@ export const IndexSeazon = () => {
   return (
     <>
       <FlexWrapper width="55%" alignItems="center" justifyContent="center">
-        <FlexWrapper flexDirection="column" alignItems="center" gap="50px">
+        <FlexWrapper flexDirection="column" alignItems="center" gap="50px" height="485px" paddingTop="30px">
           <Span
             fontSize="36px"
             color="#ffffff"
@@ -47,14 +47,16 @@ export const IndexSeazon = () => {
 
           <Span width="120px" borderBottom="1px solid #ffffff"></Span>
 
+          {/* позже сделаю отдельный компонент для скелетонов этого блока, на данный момент рендерится 4 компонента вместо одного */}
           {loading && (
-            <Span
-              fontSize="18px"
-              color="#ffffff"
-              fontFamily="'PT Sans', sans-serif;"
-            >
-              Загрузка...
-            </Span>
+            <>
+              <FlexWrapper flexDirection="row" gap="30px" width="650px" height="260px">
+                <IndexSceletonSeazon />
+                <IndexSceletonSeazon />
+                <IndexSceletonSeazon />
+                <IndexSceletonSeazon />
+              </FlexWrapper>
+            </>
           )}
 
           {error && (
