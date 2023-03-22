@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { PageIndex } from "./components/Pages/PageIndex/PageIndex";
 import { PageNotFound } from "./components/Pages/PageNotFound/PageNorFound";
 import { PageCatalog } from "./components/Pages/PageCatalog/PageCatalog";
