@@ -4,9 +4,11 @@ import { PageCartItem } from "./PageCartItem";
 import { useSelector, useDispatch } from "react-redux";
 import { clearItems  } from "../../ReduxFiles/Reduser/CartReducer";
 import { PageCartEmpty } from "./PageCartEmpty";
+import { RootState } from "../../ReduxFiles/Redux/Store";
+import { IProduct } from "../../Data/Products";
 
 export function PageCart() {
-  const { items } = useSelector((state: any) => state.cart);
+  const { items } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch()
 
   const totalCount = items.reduce(
@@ -102,7 +104,7 @@ if (!totalPrice) {
                 alignItems="flex-start"
                 gap="20px"
               >
-                {items.map(function (items: any) {
+                {items.map(function (items:IProduct) {
                   return (
                     <div key={items.id}>
                       <PageCartItem

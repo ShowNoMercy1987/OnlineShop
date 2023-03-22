@@ -1,11 +1,11 @@
 import { RootState } from "../ReduxFiles/Redux/Store";
 
-interface IRating {
+export type IRating = {
   rate: number;
   count: number;
 }
 
-export interface IProduct {
+export type IProduct = {
   id: number;
   title: string;
   price: number;
@@ -16,11 +16,12 @@ export interface IProduct {
   rating?: IRating;
 }
 
-export interface ISeazon {
+export type ISeazon = {
   id: number;
   title: string;
   image: string;
 }
+
 
 export const selectCart = (state: RootState) => state.cart;
 
