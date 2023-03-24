@@ -1,5 +1,4 @@
 import { FlexWrapper } from "../../../../StyledComponents/FlexWrapper/FlexWrapper";
-import { Span } from "../../../../StyledComponents/Span/Span";
 
 export const IndexSceletonSeazon = () => {
   return (
