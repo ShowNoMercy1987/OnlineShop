@@ -15,7 +15,7 @@ export const IndexCatalogCard = ({
   price,
   category,
 }: IProduct) => {
-  const [ inCart, addedInCart ] = useState("Добавить в корзину");
+  const [inCart, addedInCart] = useState("Добавить в корзину");
   // const [ size, activedSize ] = useState(0);
   // const [ selectedItem, setSelectedItem ] = useState('')
   const dispatch = useDispatch();
@@ -69,6 +69,9 @@ export const IndexCatalogCard = ({
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
+        width="250px"
+        height="100%"
+        overflow="hidden"
       >
         <img className="img-about" src={image} alt="img" />
       </FlexWrapper>
@@ -82,6 +85,7 @@ export const IndexCatalogCard = ({
             flexDirection="column"
             alignItems="flex-start"
             gap="10px"
+            width="1100px"
           >
             <FlexWrapper justifyContent="space-between" width="100%">
               <Span

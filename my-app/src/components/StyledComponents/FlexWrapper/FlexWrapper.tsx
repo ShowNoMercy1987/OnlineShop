@@ -33,6 +33,7 @@ interface IFlexWrapper {
   transitionProperty?: string;
   hoverColor?: string;
   hoverBorderColor?: string;
+  overflow?: string;
 }
 
 export const FlexWrapper = styled.div<IFlexWrapper>`
@@ -66,6 +67,7 @@ export const FlexWrapper = styled.div<IFlexWrapper>`
   text-align?: ${(props) => props.textAlign};
   transition-duration: ${(props) => props.transitionDuration};
   transition-property: ${(props) => props.transitionProperty};
+  overflow: ${(props) => props.overflow};
 
 
   &:hover {

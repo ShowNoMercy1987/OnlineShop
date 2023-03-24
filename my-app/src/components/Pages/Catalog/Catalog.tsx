@@ -5,14 +5,15 @@ import { useState, useEffect } from "react";
 import { IProduct } from "../../Data/Products";
 import axios, { AxiosError } from "axios";
 import Pagination from "../../Pagination/Pagination";
+import { IndexCatalogSceleton } from "../PageIndex/PageIndexComponents/IndexCatalog/IndexCatalogSceleton";
 
 export const Catalog = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [currentPage , setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(2)
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(2);
+
   async function fetchProduct() {
     try {
       setError("");
@@ -35,9 +36,11 @@ export const Catalog = () => {
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  const howManyPages = Math.ceil(products.length/productsPerPage);
-
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+  const howManyPages = Math.ceil(products.length / productsPerPage);
 
   return (
     <>
@@ -95,13 +98,10 @@ export const Catalog = () => {
             <Span width="120px" borderBottom="1px solid #ffffff"></Span>
 
             {loading && (
-              <Span
-                fontSize="18px"
-                color="#ffffff"
-                fontFamily="'PT Sans', sans-serif;"
-              >
-                Загрузка...
-              </Span>
+              <>
+                <IndexCatalogSceleton />
+                <IndexCatalogSceleton />
+              </>
             )}
 
             {error && (
@@ -137,10 +137,12 @@ export const Catalog = () => {
               })}
             </FlexWrapper>
 
-              <FlexWrapper>
-                <Pagination pages = {howManyPages} setCurrentPage={setCurrentPage} />
-              </FlexWrapper>
-
+            <FlexWrapper>
+              <Pagination
+                pages={howManyPages}
+                setCurrentPage={setCurrentPage}
+              />
+            </FlexWrapper>
           </FlexWrapper>
         </FlexWrapper>
       </FlexWrapper>
