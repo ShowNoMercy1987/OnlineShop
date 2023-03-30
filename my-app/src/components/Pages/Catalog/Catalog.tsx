@@ -1,11 +1,17 @@
 import { FlexWrapper } from "../../StyledComponents/FlexWrapper/FlexWrapper";
-import { Span } from "../../StyledComponents/Span/Span";
 import { IndexCatalogCard } from "../PageIndex/PageIndexComponents/IndexCatalog/IndexCatalogCard";
 import { useState, useEffect } from "react";
 import { IProduct } from "../../Data/Products";
 import axios, { AxiosError } from "axios";
 import Pagination from "../../Pagination/Pagination";
 import { IndexCatalogSceleton } from "../PageIndex/PageIndexComponents/IndexCatalog/IndexCatalogSceleton";
+import { CatalogMenuTitle } from "./CatalogStyles";
+import { MenuUnderline } from "./CatalogStyles";
+import { CatalogTitle } from "./CatalogStyles";
+import { ErrorMessage } from "./CatalogStyles";
+import { CatalogMenuWrapper } from "./CatalogStyles";
+import { CatalogWrapper } from "./CatalogStyles";
+import { CatalogListWrapper } from "./CatalogStyles";
 
 export const Catalog = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -34,6 +40,11 @@ export const Catalog = () => {
     fetchProduct();
   }, []);
 
+  // useEffect(() => {
+  //   // @ts-ignore
+  //   setCurrentPage(JSON.parse(localStorage.getItem('page')));
+  // }, [])
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(
@@ -50,25 +61,10 @@ export const Catalog = () => {
         backgroundCcolor="#000000"
         paddingTop="120px"
       >
-        <FlexWrapper
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          gap="30px"
-          height="100%"
-          width="20%"
-          marginTop="44px"
-          padding="20px"
-        >
-          <Span
-            fontSize="36px"
-            color="#ffffff"
-            fontFamily="'PT Sans', sans-serif;"
-          >
-            Меню
-          </Span>
-          <Span width="120px" borderBottom="1px solid #ffffff"></Span>
-        </FlexWrapper>
+        <CatalogMenuWrapper>
+          <CatalogMenuTitle>Меню</CatalogMenuTitle>
+          <MenuUnderline />
+        </CatalogMenuWrapper>
 
         <FlexWrapper
           alignItems="center"
@@ -79,23 +75,9 @@ export const Catalog = () => {
           minHeight="100vh"
           width="80%"
         >
-          <FlexWrapper
-            alignItems="center"
-            justifyContent="center"
-            flexDirection="column"
-            gap="30px"
-            padding="20px"
-            marginTop="44px"
-            width="100%"
-          >
-            <Span
-              fontSize="36px"
-              color="#ffffff"
-              fontFamily="'PT Sans', sans-serif;"
-            >
-              Каталог товаров
-            </Span>
-            <Span width="120px" borderBottom="1px solid #ffffff"></Span>
+          <CatalogWrapper>
+            <CatalogTitle>Каталог товаров</CatalogTitle>
+            <MenuUnderline />
 
             {loading && (
               <>
@@ -104,22 +86,9 @@ export const Catalog = () => {
               </>
             )}
 
-            {error && (
-              <Span
-                fontSize="18px"
-                color="#ffffff"
-                fontFamily="'PT Sans', sans-serif;"
-              >
-                {error}
-              </Span>
-            )}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
 
-            <FlexWrapper
-              gap="30px"
-              flexDirection="column"
-              height="100%"
-              width="100%"
-            >
+            <CatalogListWrapper>
               {currentProducts.map(function (product) {
                 return (
                   <div key={product.id}>
@@ -135,7 +104,7 @@ export const Catalog = () => {
                   </div>
                 );
               })}
-            </FlexWrapper>
+            </CatalogListWrapper>
 
             <FlexWrapper>
               <Pagination
@@ -143,7 +112,7 @@ export const Catalog = () => {
                 setCurrentPage={setCurrentPage}
               />
             </FlexWrapper>
-          </FlexWrapper>
+          </CatalogWrapper>
         </FlexWrapper>
       </FlexWrapper>
     </>
