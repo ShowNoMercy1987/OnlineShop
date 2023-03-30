@@ -7,7 +7,17 @@ type PaginationProps = {
   setCurrentPage: (page: number) => void;
 };
 
+
 const Pagination:React.FC<PaginationProps> = ({pages , setCurrentPage}) => {
+
+
+  const activePage = (e: any) => {
+    let page = e.selected + 1;
+    setCurrentPage(page);
+    localStorage.setItem('page', page)
+  }
+
+
   return (
     <>
         <ReactPaginate
@@ -23,7 +33,7 @@ const Pagination:React.FC<PaginationProps> = ({pages , setCurrentPage}) => {
           breakLinkClassName="pagination-container pagination-text pagination-list pagination-buttons"
           breakLabel="..."
           nextLabel="следующая >"
-          onPageChange={(event:any) => setCurrentPage(event.selected + 1)}
+          onPageChange={activePage}
           pageRangeDisplayed={3}
           pageCount={pages}
           previousLabel="< предыдущая"

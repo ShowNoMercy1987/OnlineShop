@@ -1,15 +1,23 @@
 import { FlexWrapper } from "../../StyledComponents/FlexWrapper/FlexWrapper";
-import { Span } from "../../StyledComponents/Span/Span";
 import { PageCartItem } from "./PageCartItem";
 import { useSelector, useDispatch } from "react-redux";
-import { clearItems  } from "../../ReduxFiles/Reduser/CartReducer";
+import { clearItems } from "../../ReduxFiles/Reduser/CartReducer";
 import { PageCartEmpty } from "./PageCartEmpty";
 import { RootState } from "../../ReduxFiles/Redux/Store";
 import { IProduct } from "../../Data/Products";
+import { CartTitle } from "./PageCartStyles";
+import { CartUnderline } from "./PageCartStyles";
+import { Clear } from "./PageCartStyles";
+import { ClearWrapper } from "./PageCartStyles";
+import { CartFieldWrapper } from "./PageCartStyles";
+import { CartFieldSecondWrapper } from "./PageCartStyles";
+import { CartFieldItemsWrapper } from "./PageCartStyles";
+import { CartItems } from "./PageCartStyles";
+import { TotalCount } from "./PageCartStyles";
 
 export function PageCart() {
   const { items } = useSelector((state: RootState) => state.cart);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const totalCount = items.reduce(
     (sum: number, item: any) => sum + item.count,
@@ -17,19 +25,19 @@ export function PageCart() {
   );
 
   const totalPrice = items.reduce(
-    (sum: number, item: any) => Math.round(sum + (item.count * item.price)),
+    (sum: number, item: any) => Math.round(sum + item.count * item.price),
     0
   );
 
   const onClickClear = () => {
-    if(window.confirm("Вы действительно желаете очистить корзину?")) {
-    dispatch(clearItems())
+    if (window.confirm("Вы действительно желаете очистить корзину?")) {
+      dispatch(clearItems());
     }
-  }
+  };
 
-if (!totalPrice) {
-  return <PageCartEmpty />
-}
+  if (!totalPrice) {
+    return <PageCartEmpty />;
+  }
 
   return (
     <>
@@ -40,71 +48,18 @@ if (!totalPrice) {
         justifyContent="center"
         backgroundCcolor="#000000"
       >
-        <FlexWrapper
-          width="1300px"
-          height="100%"
-          margin="auto"
-          padding="20px"
-          paddingTop="150px"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          gap="30px"
-        >
-          <Span
-            fontSize="36px"
-            color="#ffffff"
-            fontFamily="'PT Sans', sans-serif;"
-          >
-            Корзина
-          </Span>
-          <Span width="120px" borderBottom="1px solid #ffffff"></Span>
+        <CartFieldWrapper>
+          <CartTitle>Корзина</CartTitle>
+          <CartUnderline />
 
-          <FlexWrapper
-            width="100%"
-            minHeight="380px"
-            flexDirection="column"
-            alignItems="center"
-            // justifyContent="space-between"
-            padding="10px"
-            border="1px solid #ffffff"
-            borderRadius="5px"
-          >
-            <FlexWrapper
-              height="20px"
-              width="100%"
-              alignItems="center"
-              justifyContent="flex-end"
-              onClick={onClickClear}
-            >
-              <Span
-                fontSize="20px"
-                color="#ffffff"
-                fontFamily="'PT Sans', sans-serif;"
-                textDecoration="underline"
-                hoverColor="#c81717"
-                activeColor="#a81313"
-                cursor="pointer"
-              >
-                Очистить корзину
-              </Span>
-            </FlexWrapper>
+          <CartFieldSecondWrapper>
+            <ClearWrapper onClick={onClickClear}>
+              <Clear>Очистить корзину</Clear>
+            </ClearWrapper>
 
-            <FlexWrapper
-              justifyContent="center"
-              alignItems="flex-start"
-              width="100%"
-              minHeight="360px"
-            >
-              <FlexWrapper
-                width="100%"
-                height="100%"
-                flexDirection="column"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                gap="20px"
-              >
-                {items.map(function (items:IProduct) {
+            <CartFieldItemsWrapper>
+              <CartItems>
+                {items.map(function (items: IProduct) {
                   return (
                     <div key={items.id}>
                       <PageCartItem
@@ -118,32 +73,20 @@ if (!totalPrice) {
                     </div>
                   );
                 })}
-              </FlexWrapper>
-            </FlexWrapper>
+              </CartItems>
+            </CartFieldItemsWrapper>
 
             <FlexWrapper
               width="100%"
               alignItems="center"
               justifyContent="space-between"
             >
-              <Span
-                fontSize="36px"
-                color="#ffffff"
-                fontFamily="'PT Sans', sans-serif;"
-              >
-                Кол-во товаров: {totalCount}шт.
-              </Span>
+              <TotalCount>Кол-во товаров: {totalCount}шт.</TotalCount>
 
-              <Span
-                fontSize="36px"
-                color="#ffffff"
-                fontFamily="'PT Sans', sans-serif;"
-              >
-                Сумма: {totalPrice}$
-              </Span>
+              <TotalCount>Сумма: {totalPrice}$</TotalCount>
             </FlexWrapper>
-          </FlexWrapper>
-        </FlexWrapper>
+          </CartFieldSecondWrapper>
+        </CartFieldWrapper>
       </FlexWrapper>
     </>
   );

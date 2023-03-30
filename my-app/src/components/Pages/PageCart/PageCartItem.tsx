@@ -2,6 +2,8 @@ import { FlexWrapper } from "../../StyledComponents/FlexWrapper/FlexWrapper";
 import { Span } from "../../StyledComponents/Span/Span";
 import { IProduct } from "../../Data/Products";
 import { useDispatch } from "react-redux";
+import { CartItemMainWrapper } from "./PageCartStyles";
+import { CartItemImgWrapper } from "./PageCartStyles";
 import {
   plusItem,
   minusItem,
@@ -36,20 +38,10 @@ export const PageCartItem = ({
 
   return (
     <>
-      <FlexWrapper
-        alignItems="centet"
-        justifyContent="flex-start"
-        height="100%"
-        width="100%"
-      >
-        <FlexWrapper
-          padding="10px"
-          alignItems="center"
-          justifyContent="center"
-          width="155px"
-        >
+      <CartItemMainWrapper>
+        <CartItemImgWrapper>
           <img className="img-cart" src={image} alt="product" />
-        </FlexWrapper>
+        </CartItemImgWrapper>
 
         <FlexWrapper
           padding="10px"
@@ -164,7 +156,7 @@ export const PageCartItem = ({
             Удалить
           </Span>
         </FlexWrapper>
-      </FlexWrapper>
+      </CartItemMainWrapper>
     </>
   );
 };
