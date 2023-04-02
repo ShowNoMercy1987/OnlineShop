@@ -1,7 +1,6 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
 import { PageIndex } from "./components/Pages/PageIndex/PageIndex";
 import { PageNotFound } from "./components/Pages/PageNotFound/PageNorFound";
-import { PageCatalog } from "./components/Pages/PageCatalog/PageCatalog";
 import { PageRegistration } from "./components/Pages/PageRegistration/PageRegistration";
 import { Collection2022 } from "./components/Pages/Collection2022/Collection2022";
 import { Header } from "./components/PagesComponent/Header/Header";
@@ -19,7 +18,6 @@ function App() {
       <HeaderSubTitle />
       <Routes>
         <Route path="/" element={<PageIndex />} />
-        <Route path="/product" element={<PageCatalog />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/registration" element={<PageRegistration />} />
         <Route path="/forgot" element={<PageForgot />} />

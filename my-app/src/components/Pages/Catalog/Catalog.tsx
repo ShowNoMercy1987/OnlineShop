@@ -1,9 +1,4 @@
-import { FlexWrapper } from "../../StyledComponents/FlexWrapper/FlexWrapper";
 import { IndexCatalogCard } from "../PageIndex/PageIndexComponents/IndexCatalog/IndexCatalogCard";
-import { useState, useEffect } from "react";
-import { IProduct } from "../../Data/Products";
-import axios, { AxiosError } from "axios";
-import Pagination from "../../Pagination/Pagination";
 import { IndexCatalogSceleton } from "../PageIndex/PageIndexComponents/IndexCatalog/IndexCatalogSceleton";
 import { CatalogMenuTitle } from "./CatalogStyles";
 import { MenuUnderline } from "./CatalogStyles";
@@ -12,6 +7,12 @@ import { ErrorMessage } from "./CatalogStyles";
 import { CatalogMenuWrapper } from "./CatalogStyles";
 import { CatalogWrapper } from "./CatalogStyles";
 import { CatalogListWrapper } from "./CatalogStyles";
+import { CatalogMainBlock } from "./CatalogStyles";
+import { CatalogItemsWrapper } from "./CatalogStyles";
+import { useState, useEffect } from "react";
+import { IProduct } from "../../Data/Products";
+import axios, { AxiosError } from "axios";
+import Pagination from "../../Pagination/Pagination";
 
 export const Catalog = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -54,27 +55,16 @@ export const Catalog = () => {
   const howManyPages = Math.ceil(products.length / productsPerPage);
 
   return (
-    <>
-      <FlexWrapper
-        alignItems="flex-start"
-        justifyContent="space-between"
-        backgroundCcolor="#000000"
-        paddingTop="120px"
-      >
+    <article>
+      <CatalogMainBlock>
         <CatalogMenuWrapper>
-          <CatalogMenuTitle>Меню</CatalogMenuTitle>
-          <MenuUnderline />
+          <section>
+            <CatalogMenuTitle>Меню</CatalogMenuTitle>
+            <MenuUnderline />
+          </section>
         </CatalogMenuWrapper>
 
-        <FlexWrapper
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          gap="30px"
-          height="100%"
-          minHeight="100vh"
-          width="80%"
-        >
+        <CatalogItemsWrapper>
           <CatalogWrapper>
             <CatalogTitle>Каталог товаров</CatalogTitle>
             <MenuUnderline />
@@ -88,33 +78,30 @@ export const Catalog = () => {
 
             {error && <ErrorMessage>{error}</ErrorMessage>}
 
-            <CatalogListWrapper>
-              {currentProducts.map(function (product) {
-                return (
-                  <div key={product.id}>
-                    <IndexCatalogCard
-                      id={product.id}
-                      title={product.title}
-                      image={product.image}
-                      rating={product.rating}
-                      description={product.description}
-                      price={product.price}
-                      category={product.category}
-                    />
-                  </div>
-                );
-              })}
-            </CatalogListWrapper>
+            <section>
+              <CatalogListWrapper>
+                {currentProducts.map(function (product) {
+                  return (
+                    <div key={product.id}>
+                      <IndexCatalogCard
+                        id={product.id}
+                        title={product.title}
+                        image={product.image}
+                        rating={product.rating}
+                        description={product.description}
+                        price={product.price}
+                        category={product.category}
+                      />
+                    </div>
+                  );
+                })}
+              </CatalogListWrapper>
+            </section>
 
-            <FlexWrapper>
-              <Pagination
-                pages={howManyPages}
-                setCurrentPage={setCurrentPage}
-              />
-            </FlexWrapper>
+            <Pagination pages={howManyPages} setCurrentPage={setCurrentPage} />
           </CatalogWrapper>
-        </FlexWrapper>
-      </FlexWrapper>
-    </>
+        </CatalogItemsWrapper>
+      </CatalogMainBlock>
+    </article>
   );
 };

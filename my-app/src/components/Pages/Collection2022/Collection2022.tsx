@@ -1,17 +1,12 @@
-import { FlexWrapper } from "../../StyledComponents/FlexWrapper/FlexWrapper";
 import { Span } from "../../StyledComponents/Span/Span";
 import { CollectionWrapper } from "./Collection2022Styles";
+import { CollectionMainWrapper } from "./Collection2022Styles";
+import { MenuUnderline } from "../Catalog/CatalogStyles";
 
 export function Collection2022() {
   return (
-    <>
-      <FlexWrapper
-        height="100vh"
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
-        backgroundCcolor="#000000"
-      >
+    <article>
+      <CollectionMainWrapper>
         <CollectionWrapper>
           <Span
             fontSize="36px"
@@ -20,9 +15,9 @@ export function Collection2022() {
           >
             СТРАНИЦА КОЛЛЕКЦИИ 2022г. НАХОДИТСЯ В РАЗРАБОТКЕ
           </Span>
-          <Span width="120px" borderBottom="1px solid #ffffff"></Span>
+          <MenuUnderline />
         </CollectionWrapper>
-      </FlexWrapper>
-    </>
+      </CollectionMainWrapper>
+    </article>
   );
 }

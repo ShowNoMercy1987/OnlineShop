@@ -5,7 +5,7 @@ export const IndexCatalogSceleton = () => {
     <>
       <FlexWrapper
         height="380px"
-        width="100%"
+        width="1440px"
         backgroundCcolor="#ffffff"
         alignItems="center"
         justifyContent="space-between"
