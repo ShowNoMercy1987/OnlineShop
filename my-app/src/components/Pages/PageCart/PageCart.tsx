@@ -1,4 +1,3 @@
-import { FlexWrapper } from "../../StyledComponents/FlexWrapper/FlexWrapper";
 import { PageCartItem } from "./PageCartItem";
 import { useSelector, useDispatch } from "react-redux";
 import { clearItems } from "../../ReduxFiles/Reduser/CartReducer";
@@ -14,6 +13,8 @@ import { CartFieldSecondWrapper } from "./PageCartStyles";
 import { CartFieldItemsWrapper } from "./PageCartStyles";
 import { CartItems } from "./PageCartStyles";
 import { TotalCount } from "./PageCartStyles";
+import { CartMainWrapper } from "./PageCartStyles";
+import { TotalWrapper } from "./PageCartStyles";
 
 export function PageCart() {
   const { items } = useSelector((state: RootState) => state.cart);
@@ -40,14 +41,8 @@ export function PageCart() {
   }
 
   return (
-    <>
-      <FlexWrapper
-        minHeight="100vh"
-        width="100%"
-        alignItems="center"
-        justifyContent="center"
-        backgroundCcolor="#000000"
-      >
+    <article>
+      <CartMainWrapper>
         <CartFieldWrapper>
           <CartTitle>Корзина</CartTitle>
           <CartUnderline />
@@ -76,18 +71,14 @@ export function PageCart() {
               </CartItems>
             </CartFieldItemsWrapper>
 
-            <FlexWrapper
-              width="100%"
-              alignItems="center"
-              justifyContent="space-between"
-            >
+            <TotalWrapper>
               <TotalCount>Кол-во товаров: {totalCount}шт.</TotalCount>
 
               <TotalCount>Сумма: {totalPrice}$</TotalCount>
-            </FlexWrapper>
+            </TotalWrapper>
           </CartFieldSecondWrapper>
         </CartFieldWrapper>
-      </FlexWrapper>
-    </>
+      </CartMainWrapper>
+    </article>
   );
 }

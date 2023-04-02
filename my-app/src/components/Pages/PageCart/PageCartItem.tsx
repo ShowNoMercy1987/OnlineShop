@@ -4,12 +4,19 @@ import { IProduct } from "../../Data/Products";
 import { useDispatch } from "react-redux";
 import { CartItemMainWrapper } from "./PageCartStyles";
 import { CartItemImgWrapper } from "./PageCartStyles";
+import { CartTitleWrapper } from "./PageCartStyles";
+import { Title } from "./PageCartStyles";
+import { PlusMinusWrapper } from "./PageCartStyles";
+import { PlusMinus } from "./PageCartStyles";
+import { Count } from "./PageCartStyles";
+import { PlusMinusBtn } from "./PageCartStyles";
+import { RemoveWrapper } from "./PageCartStyles";
+import { Remove } from "./PageCartStyles";
 import {
   plusItem,
   minusItem,
   removeItem,
 } from "../../ReduxFiles/Reduser/CartReducer";
-import { MainButton } from "../../PagesComponent/MainButton/MainButton";
 
 export const PageCartItem = ({
   id,
@@ -43,20 +50,9 @@ export const PageCartItem = ({
           <img className="img-cart" src={image} alt="product" />
         </CartItemImgWrapper>
 
-        <FlexWrapper
-          padding="10px"
-          alignItems="center"
-          justifyContent="center"
-          width="600px"
-        >
-          <Span
-            fontSize="20px"
-            color="#ffffff"
-            fontFamily="'PT Sans', sans-serif;"
-          >
-            {title}
-          </Span>
-        </FlexWrapper>
+        <CartTitleWrapper>
+          <Title>{title}</Title>
+        </CartTitleWrapper>
 
         {/* <FlexWrapper
           padding="10px"
@@ -73,63 +69,23 @@ export const PageCartItem = ({
           </Span>
         </FlexWrapper> */}
 
-        <FlexWrapper padding="10px" alignItems="center" justifyContent="center">
-          <FlexWrapper
-            padding="10px"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <MainButton
-              height="20px"
-              width="20px"
-              fontSize="20px"
-              color="#ffffff"
-              backgroundColor="#000000"
-              fontFamily="'PT Sans', sans-serif;"
-              border="1px solid #ffffff"
-              borderRadius="50%"
-              alignItems="center"
-              justifyContent="center"
-              className="plus-minus-btn"
-              onClick={onClickMinus}
-            >
+        <PlusMinusWrapper>
+          <PlusMinus>
+            <PlusMinusBtn className="plus-minus-btn" onClick={onClickMinus}>
               <Span className="btn_hover" transform="translateY(-2px)">
                 -
               </Span>
-            </MainButton>
-          </FlexWrapper>
+            </PlusMinusBtn>
+          </PlusMinus>
 
-          <Span
-            fontSize="20px"
-            color="#ffffff"
-            fontFamily="'PT Sans', sans-serif;"
-          >
-            Кол-во: {count} шт.
-          </Span>
+          <Count>Кол-во: {count} шт.</Count>
 
-          <FlexWrapper
-            padding="10px"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <MainButton
-              height="20px"
-              width="20px"
-              fontSize="20px"
-              color="#ffffff"
-              backgroundColor="#000000"
-              fontFamily="'PT Sans', sans-serif;"
-              border="1px solid #ffffff"
-              borderRadius="50%"
-              alignItems="center"
-              justifyContent="center"
-              className="plus-minus-btn"
-              onClick={onClickPlus}
-            >
+          <PlusMinus>
+            <PlusMinusBtn className="plus-minus-btn" onClick={onClickPlus}>
               <Span className="btn_hover">+</Span>
-            </MainButton>
-          </FlexWrapper>
-        </FlexWrapper>
+            </PlusMinusBtn>
+          </PlusMinus>
+        </PlusMinusWrapper>
 
         <FlexWrapper padding="10px" alignItems="center" justifyContent="center">
           <Span
@@ -141,21 +97,9 @@ export const PageCartItem = ({
           </Span>
         </FlexWrapper>
 
-        <FlexWrapper
-          padding="10px"
-          alignItems="center"
-          justifyContent="center"
-          cursor="pointer"
-        >
-          <Span
-            fontSize="20px"
-            color="#ffffff"
-            fontFamily="'PT Sans', sans-serif;"
-            onClick={onClickRemove}
-          >
-            Удалить
-          </Span>
-        </FlexWrapper>
+        <RemoveWrapper>
+          <Remove onClick={onClickRemove}>Удалить</Remove>
+        </RemoveWrapper>
       </CartItemMainWrapper>
     </>
   );
