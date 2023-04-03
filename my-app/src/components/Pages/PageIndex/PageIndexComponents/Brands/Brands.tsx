@@ -1,29 +1,27 @@
-import { FlexWrapper } from "../../../../StyledComponents/FlexWrapper/FlexWrapper";
-import { Span } from "../../../../StyledComponents/Span/Span";
-import { ReactComponent as BrandsImg } from "../../../../../images/brands.svg"
+import { ReactComponent as BrandsImg } from "../../../../../images/brands.svg";
+import { MenuUnderline } from "../../../Catalog/CatalogStyles";
+import { BrandsMainWrapper } from "./BrandsStyles";
+import { BrandsContent } from "./BrandsStyles";
+import { BrandsTitle } from "./BrandsStyles";
+import { BrandsLogos } from "./BrandsStyles";
 
 export const Brands = () => {
   return (
     <>
-      <FlexWrapper width="100%" height="362px" backgroundCcolor="#070707">
-        <FlexWrapper
-          flexDirection="column"
-          maxWidth="1300px"
-          margin="auto"
-          alignItems="center"
-          justifyContent="center"
-          gap="40px"
-        >
-          <Span fontSize="36px" color="#ffffff" fontFamily="'PT Sans', sans-serif;">Наши бренды</Span>
-          <Span width="120px" borderBottom="1px solid #ffffff"></Span>
-          <FlexWrapper maxWidth="1140" alignItems="center" justifyContent="space-between" gap="30px">
+      <BrandsMainWrapper>
+        <BrandsContent>
+          <BrandsTitle>Наши бренды</BrandsTitle>
+
+          <MenuUnderline />
+          
+          <BrandsLogos>
             <BrandsImg />
             <BrandsImg />
             <BrandsImg />
             <BrandsImg />
-          </FlexWrapper>
-        </FlexWrapper>
-      </FlexWrapper>
+          </BrandsLogos>
+        </BrandsContent>
+      </BrandsMainWrapper>
     </>
   );
 };
