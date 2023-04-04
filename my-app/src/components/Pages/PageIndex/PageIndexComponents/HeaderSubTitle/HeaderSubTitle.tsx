@@ -6,6 +6,14 @@ import { ReactComponent as SubTitleSearch } from "../../../../../images/sub_titl
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCart } from "../../../../Data/Products";
+import { HeaderSubTitleMainWrapper } from "./HeaderSubitleStyles";
+import { HeaderSubTitleContent } from "./HeaderSubitleStyles";
+import { HeaderSubTitleLogoWrapper } from "./HeaderSubitleStyles";
+import { CrumpsWrapper } from "./HeaderSubitleStyles";
+import { Nav } from "./HeaderSubitleStyles";
+import { HeaderSubTitleCartFind } from "./HeaderSubitleStyles";
+import { Count } from "./HeaderSubitleStyles";
+import { CountNumber } from "./HeaderSubitleStyles";
 
 export const HeaderSubTitle: React.FC = () => {
   const { items } = useSelector(selectCart);
@@ -16,32 +24,9 @@ export const HeaderSubTitle: React.FC = () => {
 
   return (
     <>
-      <FlexWrapper
-        width="100%"
-        height="80px"
-        alignItems="center"
-        justifyContent="space-between"
-        position="fixed"
-        zIndex="100"
-        top="44px"
-        left="0px"
-        right="0px"
-        backgroundCcolor="#0F0F0F"
-        borderBottom="1px solid #969696"
-      >
-        <FlexWrapper
-          width="1300px"
-          margin="auto"
-          height="100%"
-          justifyContent="space-between"
-          backgroundCcolor="#0F0F0F"
-        >
-          <FlexWrapper
-            height="100%"
-            width="104px"
-            alignItems="center"
-            justifyContent="center"
-          >
+      <HeaderSubTitleMainWrapper>
+        <HeaderSubTitleContent>
+          <HeaderSubTitleLogoWrapper>
             <Link className="link" to="/">
               <Span
                 fontFamily="Post No Bills Jaffna"
@@ -51,147 +36,72 @@ export const HeaderSubTitle: React.FC = () => {
                 PORTEN
               </Span>
             </Link>
-          </FlexWrapper>
+          </HeaderSubTitleLogoWrapper>
 
-          <FlexWrapper>
-            <FlexWrapper
-              className="block_hover"
-              height="100%"
-              alignItems="center"
-              justifyContent="center"
-              padding="0px 20px"
-              hoverBackground="#1F1F1F"
-              cursor="pointer"
-              transitionProperty="background-color"
-              transitionDuration="0.4s"
-            >
-              <Link className="link" to="/">
-                <Span color="#969696" fontSize="14px" className="text_hover">
-                  ГЛАВНАЯ
-                </Span>
-              </Link>
-            </FlexWrapper>
-            <FlexWrapper
-              className="block_hover"
-              height="100%"
-              alignItems="center"
-              justifyContent="center"
-              padding="0px 20px"
-              hoverBackground="#1F1F1F"
-              cursor="pointer"
-              transitionProperty="background-color"
-              transitionDuration="0.4s"
-            >
-              <Link className="link" to="/Catalog">
-                <Span color="#969696" fontSize="14px" className="text_hover">
-                  КАТАЛОГ
-                </Span>
-              </Link>
-            </FlexWrapper>
-
-            <FlexWrapper
-              className="block_hover"
-              height="100%"
-              alignItems="center"
-              justifyContent="center"
-              padding="0px 20px"
-              hoverBackground="#1F1F1F"
-              cursor="pointer"
-              transitionProperty="background-color"
-              transitionDuration="0.4s"
-            >
-              <Span color="#969696" fontSize="14px" className="text_hover">
-                ПОНРАВИЛОСЬ
-              </Span>
-            </FlexWrapper>
-
-            <FlexWrapper
-              className="block_hover"
-              height="100%"
-              alignItems="center"
-              justifyContent="center"
-              padding="0px 20px"
-              hoverBackground="#1F1F1F"
-              cursor="pointer"
-              transitionProperty="background-color"
-              transitionDuration="0.4s"
-            >
-              <Span color="#969696" fontSize="14px" className="text_hover">
-                ЛИЧНЫЙ КАБИНЕТ
-              </Span>
-            </FlexWrapper>
-
-            <FlexWrapper
-              className="block_hover"
-              height="100%"
-              alignItems="center"
-              justifyContent="center"
-              padding="0px 20px"
-              hoverBackground="#1F1F1F"
-              cursor="pointer"
-              transitionProperty="background-color"
-              transitionDuration="0.4s"
-            >
-              <Span color="#969696" fontSize="14px" className="text_hover">
-                НАСТРОЙКИ
-              </Span>
-            </FlexWrapper>
-
-            <FlexWrapper
-              className="block_hover"
-              height="100%"
-              alignItems="center"
-              justifyContent="center"
-              padding="0px 20px"
-              hoverBackground="#1F1F1F"
-              cursor="pointer"
-            >
-              <FlexWrapper
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-              >
-                {totalCount > 0 && (
-                  <FlexWrapper
-                    alignItems="flex-end"
-                    justifyContent="center"
-                    position="absolute"
-                    top="-16px"
-                    right="-16px"
-                    backgroundCcolor="#ce1d1d"
-                    border="2px solid #000000"
-                    borderRadius="50%"
-                    height="24px"
-                    width="24px"
-                  >
-                    <Span color="#ffffff">{totalCount}</Span>
-                  </FlexWrapper>
-                )}
-
-                <Link className="link" to="/PageCart">
+          <nav>
+            <Nav>
+              <CrumpsWrapper className="block_hover">
+                <Link className="link" to="/">
                   <Span color="#969696" fontSize="14px" className="text_hover">
-                    <SubTitleCart />
+                    ГЛАВНАЯ
                   </Span>
                 </Link>
-              </FlexWrapper>
-            </FlexWrapper>
+              </CrumpsWrapper>
+              <CrumpsWrapper className="block_hover">
+                <Link className="link" to="/Catalog">
+                  <Span color="#969696" fontSize="14px" className="text_hover">
+                    КАТАЛОГ
+                  </Span>
+                </Link>
+              </CrumpsWrapper>
 
-            <FlexWrapper
-              className="block_hover"
-              height="100%"
-              alignItems="center"
-              justifyContent="center"
-              padding="0px 20px"
-              hoverBackground="#1F1F1F"
-              cursor="pointer"
-            >
-              <Span color="#969696" fontSize="14px" className="text_hover">
-                <SubTitleSearch />
-              </Span>
-            </FlexWrapper>
-          </FlexWrapper>
-        </FlexWrapper>
-      </FlexWrapper>
+              <CrumpsWrapper className="block_hover">
+                <Span color="#969696" fontSize="14px" className="text_hover">
+                  ПОНРАВИЛОСЬ
+                </Span>
+              </CrumpsWrapper>
+
+              <CrumpsWrapper className="block_hover">
+                <Span color="#969696" fontSize="14px" className="text_hover">
+                  ЛИЧНЫЙ КАБИНЕТ
+                </Span>
+              </CrumpsWrapper>
+
+              <CrumpsWrapper className="block_hover">
+                <Span color="#969696" fontSize="14px" className="text_hover">
+                  НАСТРОЙКИ
+                </Span>
+              </CrumpsWrapper>
+
+              <HeaderSubTitleCartFind className="block_hover">
+                <Count>
+                  {totalCount > 0 && (
+                    <CountNumber>
+                      <Span color="#ffffff">{totalCount}</Span>
+                    </CountNumber>
+                  )}
+
+                  <Link className="link" to="/PageCart">
+                    <Span
+                      color="#969696"
+                      fontSize="14px"
+                      className="text_hover"
+                    >
+                      <SubTitleCart />
+                    </Span>
+                  </Link>
+                </Count>
+              </HeaderSubTitleCartFind>
+
+              <HeaderSubTitleCartFind className="block_hover">
+                <Span color="#969696" fontSize="14px" className="text_hover">
+                  <SubTitleSearch />
+                </Span>
+              </HeaderSubTitleCartFind>
+            </Nav>
+          </nav>
+        </HeaderSubTitleContent>
+      </HeaderSubTitleMainWrapper>
     </>
   );
 };
