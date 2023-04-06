@@ -1,5 +1,4 @@
 import "../../../../../App.css";
-import { FlexWrapper } from "../../../../StyledComponents/FlexWrapper/FlexWrapper";
 import { Span } from "../../../../StyledComponents/Span/Span";
 import { ReactComponent as SubTitleCart } from "../../../../../images/sub_title_cart.svg";
 import { ReactComponent as SubTitleSearch } from "../../../../../images/sub_title_search.svg";
