@@ -1,11 +1,22 @@
-import { FlexWrapper } from "../../../../StyledComponents/FlexWrapper/FlexWrapper";
-import { Span } from "../../../../StyledComponents/Span/Span";
-import { MainButton } from "../../../../PagesComponent/MainButton/MainButton";
 import { IProduct } from "../../../../Data/Products";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../../../ReduxFiles/Reduser/CartReducer";
 import { ReactComponent as Heart } from "../../../../../images/heart.svg";
 import { useState } from "react";
+import { ItemMainWrapper } from "./IndexCatalogCartStyles";
+import { SvgWrapper } from "./IndexCatalogCartStyles";
+import { ImgWrapper } from "./IndexCatalogCartStyles";
+import { ContentWrapper } from "./IndexCatalogCartStyles";
+import { ContentSecondWrapper } from "./IndexCatalogCartStyles";
+import { ItemWrapper } from "./IndexCatalogCartStyles";
+import { ItemTitleWrapper } from "./IndexCatalogCartStyles";
+import { Title } from "./IndexCatalogCartStyles";
+import { PriceWrapper } from "./IndexCatalogCartStyles";
+import { PriceTitle } from "./IndexCatalogCartStyles";
+import { Description } from "./IndexCatalogCartStyles";
+import { Category } from "./IndexCatalogCartStyles";
+import { ButtonWrapper } from "./IndexCatalogCartStyles";
+import { AddButton } from "./IndexCatalogCartStyles";
 
 export const IndexCatalogCard = ({
   id,
@@ -50,83 +61,30 @@ export const IndexCatalogCard = ({
   // ];
 
   return (
-    <FlexWrapper
-      height="380px"
-      width="100%"
-      backgroundCcolor="#ffffff"
-      alignItems="center"
-      justifyContent="space-between"
-      borderRadius="5px"
-      padding="20px"
-      gap="50px"
-      position="relative"
-    >
-      <FlexWrapper position="absolute" top="27px" left="20px">
+    <ItemMainWrapper>
+      <SvgWrapper>
         <Heart className="heart" />
-      </FlexWrapper>
+      </SvgWrapper>
 
-      <FlexWrapper
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        width="250px"
-        height="100%"
-        overflow="hidden"
-      >
+      <ImgWrapper>
         <img className="img-about" src={image} alt="img" />
-      </FlexWrapper>
-      <FlexWrapper height="100%">
-        <FlexWrapper
-          flexDirection="column"
-          height="100%"
-          justifyContent="space-between"
-        >
-          <FlexWrapper
-            flexDirection="column"
-            alignItems="flex-start"
-            gap="10px"
-            width="1100px"
-          >
-            <FlexWrapper justifyContent="space-between" width="100%">
-              <Span
-                fontSize="26px"
-                color="#000000"
-                fontFamily="'PT Sans', sans-serif;"
-                textDecoration="underline"
-              >
-                {title}
-              </Span>
+      </ImgWrapper>
+      <ContentWrapper>
+        <ContentSecondWrapper>
+          <ItemWrapper>
+            <ItemTitleWrapper>
+              <Title>{title}</Title>
 
-              <FlexWrapper gap="10px" alignItems="center">
-                <Span
-                  fontSize="26px"
-                  color="#000000"
-                  fontFamily="'PT Sans', sans-serif;"
-                >
-                  Цена:
-                </Span>
-                <Span fontSize="26px" fontFamily="'PT Sans', sans-serif;">
-                  {price}$
-                </Span>
-              </FlexWrapper>
-            </FlexWrapper>
+              <PriceWrapper>
+                <PriceTitle>Цена:</PriceTitle>
+                <PriceTitle>{price}$</PriceTitle>
+              </PriceWrapper>
+            </ItemTitleWrapper>
 
-            <Span
-              fontSize="14px"
-              color="#000000"
-              fontFamily="'PT Sans', sans-serif;"
-            >
-              {category}
-            </Span>
-            <Span
-              fontSize="18px"
-              color="#000000"
-              fontFamily="'PT Sans', sans-serif;"
-            >
-              {description}
-            </Span>
-          </FlexWrapper>
-          <FlexWrapper justifyContent="flex-end" width="100%">
+            <Category>{category}</Category>
+            <Description>{description}</Description>
+          </ItemWrapper>
+          <ButtonWrapper>
             {/* <FlexWrapper alignItems="center" justifyContent="center" gap="10px">
               <Span
                 fontSize="22px"
@@ -155,23 +113,10 @@ export const IndexCatalogCard = ({
                 );
               })}
             </FlexWrapper> */}
-            <MainButton
-              color="#ffffff"
-              fontSize="26px"
-              padding="15px 25px"
-              backgroundColor="#000000"
-              backgroundColorActive="#2f2f2f"
-              backgroundColorHover="#434343"
-              borderRadius="5px"
-              transitionDuration="0.4s"
-              transitionProperty="color"
-              onClick={onClickAdd}
-            >
-              {inCart}
-            </MainButton>
-          </FlexWrapper>
-        </FlexWrapper>
-      </FlexWrapper>
-    </FlexWrapper>
+            <AddButton onClick={onClickAdd}>{inCart}</AddButton>
+          </ButtonWrapper>
+        </ContentSecondWrapper>
+      </ContentWrapper>
+    </ItemMainWrapper>
   );
 };
