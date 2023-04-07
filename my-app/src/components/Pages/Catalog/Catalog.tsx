@@ -81,6 +81,7 @@ export const Catalog = () => {
             <section>
               <CatalogListWrapper>
                 {currentProducts.map(function (product) {
+                  const PtoductPrice = Math.round(product.price);
                   return (
                     <div key={product.id}>
                       <IndexCatalogCard
@@ -89,7 +90,7 @@ export const Catalog = () => {
                         image={product.image}
                         rating={product.rating}
                         description={product.description}
-                        price={product.price}
+                        price={PtoductPrice}
                         category={product.category}
                       />
                     </div>

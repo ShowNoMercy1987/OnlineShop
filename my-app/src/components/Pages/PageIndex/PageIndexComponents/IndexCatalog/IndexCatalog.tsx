@@ -1,4 +1,3 @@
-import { MainButton } from "../../../../PagesComponent/MainButton/MainButton";
 import CollectionBlock from "../../../../../images/collection-block.png";
 import { Link } from "react-router-dom";
 import { IndexCatalogMainWrapper } from "./IndexCatalogCartStyles";

@@ -26,7 +26,7 @@ export function PageCart() {
   );
 
   const totalPrice = items.reduce(
-    (sum: number, item: any) => Math.round(sum + item.count * item.price),
+    (sum: number, item: any) => (sum + item.count * item.price),
     0
   );
 
