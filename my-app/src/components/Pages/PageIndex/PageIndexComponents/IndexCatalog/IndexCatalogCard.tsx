@@ -3,20 +3,22 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../../../ReduxFiles/Reduser/CartReducer";
 import { ReactComponent as Heart } from "../../../../../images/heart.svg";
 import { useState } from "react";
-import { ItemMainWrapper } from "./IndexCatalogCartStyles";
-import { SvgWrapper } from "./IndexCatalogCartStyles";
-import { ImgWrapper } from "./IndexCatalogCartStyles";
-import { ContentWrapper } from "./IndexCatalogCartStyles";
-import { ContentSecondWrapper } from "./IndexCatalogCartStyles";
-import { ItemWrapper } from "./IndexCatalogCartStyles";
-import { ItemTitleWrapper } from "./IndexCatalogCartStyles";
-import { Title } from "./IndexCatalogCartStyles";
-import { PriceWrapper } from "./IndexCatalogCartStyles";
-import { PriceTitle } from "./IndexCatalogCartStyles";
-import { Description } from "./IndexCatalogCartStyles";
-import { Category } from "./IndexCatalogCartStyles";
-import { ButtonWrapper } from "./IndexCatalogCartStyles";
-import { AddButton } from "./IndexCatalogCartStyles";
+import {
+  ItemMainWrapper,
+  SvgWrapper,
+  ImgWrapper,
+  ContentWrapper,
+  ContentSecondWrapper,
+  ItemWrapper,
+  ItemTitleWrapper,
+  Title,
+  PriceWrapper,
+  PriceTitle,
+  Description,
+  Category,
+  ButtonWrapper,
+  AddButton,
+} from "./IndexCatalogCartStyles";
 
 export const IndexCatalogCard = ({
   id,

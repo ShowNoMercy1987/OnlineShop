@@ -1,6 +1,5 @@
 import { Span } from "../../StyledComponents/Span/Span";
-import { ForgotMainWrapper } from "./PageForgotStyles";
-import { ForgotContentWrapper } from "./PageForgotStyles";
+import { ForgotMainWrapper, ForgotContentWrapper } from "./PageForgotStyles";
 import { MenuUnderline } from "../Catalog/CatalogStyles";
 
 export function PageForgot() {

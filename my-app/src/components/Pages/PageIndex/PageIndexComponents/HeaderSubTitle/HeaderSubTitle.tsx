@@ -5,14 +5,16 @@ import { ReactComponent as SubTitleSearch } from "../../../../../images/sub_titl
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCart } from "../../../../Data/Products";
-import { HeaderSubTitleMainWrapper } from "./HeaderSubitleStyles";
-import { HeaderSubTitleContent } from "./HeaderSubitleStyles";
-import { HeaderSubTitleLogoWrapper } from "./HeaderSubitleStyles";
-import { CrumpsWrapper } from "./HeaderSubitleStyles";
-import { Nav } from "./HeaderSubitleStyles";
-import { HeaderSubTitleCartFind } from "./HeaderSubitleStyles";
-import { Count } from "./HeaderSubitleStyles";
-import { CountNumber } from "./HeaderSubitleStyles";
+import {
+  HeaderSubTitleMainWrapper,
+  HeaderSubTitleContent,
+  HeaderSubTitleLogoWrapper,
+  CrumpsWrapper,
+  Nav,
+  HeaderSubTitleCartFind,
+  Count,
+  CountNumber,
+} from "./HeaderSubitleStyles";
 
 export const HeaderSubTitle: React.FC = () => {
   const { items } = useSelector(selectCart);

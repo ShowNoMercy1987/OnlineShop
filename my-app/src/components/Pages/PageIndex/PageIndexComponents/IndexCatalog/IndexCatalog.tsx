@@ -1,10 +1,12 @@
 import CollectionBlock from "../../../../../images/collection-block.png";
 import { Link } from "react-router-dom";
-import { IndexCatalogMainWrapper } from "./IndexCatalogCartStyles";
-import { IndexCatalogSecondWrapper } from "./IndexCatalogCartStyles";
-import { Goods } from "./IndexCatalogCartStyles";
-import { Underline } from "./IndexCatalogCartStyles";
-import { Button } from "./IndexCatalogCartStyles";
+import {
+  IndexCatalogMainWrapper,
+  IndexCatalogSecondWrapper,
+  Goods,
+  Underline,
+  Button,
+} from "./IndexCatalogCartStyles";
 
 export const IndexCatalog = () => {
   return (

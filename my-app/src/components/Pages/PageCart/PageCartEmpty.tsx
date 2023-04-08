@@ -1,6 +1,8 @@
-import { TotalCount } from "./PageCartStyles";
-import { EmptyCartMainWrapper } from "./PageCartStyles";
-import { EmptyCartSecondWrapper } from "./PageCartStyles";
+import {
+  TotalCount,
+  EmptyCartMainWrapper,
+  EmptyCartSecondWrapper,
+} from "./PageCartStyles";
 
 export function PageCartEmpty() {
   return (

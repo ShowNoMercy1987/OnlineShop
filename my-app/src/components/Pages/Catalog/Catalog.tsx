@@ -1,14 +1,16 @@
 import { IndexCatalogCard } from "../PageIndex/PageIndexComponents/IndexCatalog/IndexCatalogCard";
 import { IndexCatalogSceleton } from "../PageIndex/PageIndexComponents/IndexCatalog/IndexCatalogSceleton";
-import { CatalogMenuTitle } from "./CatalogStyles";
-import { MenuUnderline } from "./CatalogStyles";
-import { CatalogTitle } from "./CatalogStyles";
-import { ErrorMessage } from "./CatalogStyles";
-import { CatalogMenuWrapper } from "./CatalogStyles";
-import { CatalogWrapper } from "./CatalogStyles";
-import { CatalogListWrapper } from "./CatalogStyles";
-import { CatalogMainBlock } from "./CatalogStyles";
-import { CatalogItemsWrapper } from "./CatalogStyles";
+import {
+  CatalogMenuTitle,
+  MenuUnderline,
+  CatalogTitle,
+  ErrorMessage,
+  CatalogMenuWrapper,
+  CatalogWrapper,
+  CatalogListWrapper,
+  CatalogMainBlock,
+  CatalogItemsWrapper,
+} from "./CatalogStyles";
 import { useState, useEffect } from "react";
 import { IProduct } from "../../Data/Products";
 import axios, { AxiosError } from "axios";

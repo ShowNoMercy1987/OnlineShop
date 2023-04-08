@@ -4,17 +4,19 @@ import { clearItems } from "../../ReduxFiles/Reduser/CartReducer";
 import { PageCartEmpty } from "./PageCartEmpty";
 import { RootState } from "../../ReduxFiles/Redux/Store";
 import { IProduct } from "../../Data/Products";
-import { CartTitle } from "./PageCartStyles";
-import { CartUnderline } from "./PageCartStyles";
-import { Clear } from "./PageCartStyles";
-import { ClearWrapper } from "./PageCartStyles";
-import { CartFieldWrapper } from "./PageCartStyles";
-import { CartFieldSecondWrapper } from "./PageCartStyles";
-import { CartFieldItemsWrapper } from "./PageCartStyles";
-import { CartItems } from "./PageCartStyles";
-import { TotalCount } from "./PageCartStyles";
-import { CartMainWrapper } from "./PageCartStyles";
-import { TotalWrapper } from "./PageCartStyles";
+import {
+  CartTitle,
+  CartUnderline,
+  Clear,
+  ClearWrapper,
+  CartFieldWrapper,
+  CartFieldSecondWrapper,
+  CartFieldItemsWrapper,
+  CartItems,
+  TotalCount,
+  CartMainWrapper,
+  TotalWrapper,
+} from "./PageCartStyles";
 
 export function PageCart() {
   const { items } = useSelector((state: RootState) => state.cart);
@@ -26,7 +28,7 @@ export function PageCart() {
   );
 
   const totalPrice = items.reduce(
-    (sum: number, item: any) => (sum + item.count * item.price),
+    (sum: number, item: any) => sum + item.count * item.price,
     0
   );
 
