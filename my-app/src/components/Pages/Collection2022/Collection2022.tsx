@@ -1,6 +1,8 @@
 import { Span } from "../../StyledComponents/Span/Span";
-import { CollectionWrapper } from "./Collection2022Styles";
-import { CollectionMainWrapper } from "./Collection2022Styles";
+import {
+  CollectionWrapper,
+  CollectionMainWrapper,
+} from "./Collection2022Styles";
 import { MenuUnderline } from "../Catalog/CatalogStyles";
 
 export function Collection2022() {

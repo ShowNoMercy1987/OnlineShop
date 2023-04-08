@@ -102,6 +102,7 @@ export const PlusMinusBtn = styled.button`
   border-radius: 50%;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const Count = styled.span`

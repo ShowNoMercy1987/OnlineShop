@@ -1,12 +1,14 @@
 import LogoBlock from "../../../../../images/logo_block.png";
-import { LogoWrapper } from "./IndexLogoStyles";
-import { LogoSecondWrapper } from "./IndexLogoStyles";
-import { Logo } from "./IndexLogoStyles";
-import { NameTitle } from "./IndexLogoStyles";
-import { Underline } from "./IndexLogoStyles";
-import { City } from "./IndexLogoStyles";
-import { SloganWrapper } from "./IndexLogoStyles";
-import { Slogan } from "./IndexLogoStyles";
+import {
+  LogoWrapper,
+  LogoSecondWrapper,
+  Logo,
+  NameTitle,
+  Underline,
+  City,
+  SloganWrapper,
+  Slogan,
+} from "./IndexLogoStyles";
 
 export const IndexBigLogo = () => {
   return (

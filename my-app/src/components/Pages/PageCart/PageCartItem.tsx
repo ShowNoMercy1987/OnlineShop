@@ -2,16 +2,18 @@ import { FlexWrapper } from "../../StyledComponents/FlexWrapper/FlexWrapper";
 import { Span } from "../../StyledComponents/Span/Span";
 import { IProduct } from "../../Data/Products";
 import { useDispatch } from "react-redux";
-import { CartItemMainWrapper } from "./PageCartStyles";
-import { CartItemImgWrapper } from "./PageCartStyles";
-import { CartTitleWrapper } from "./PageCartStyles";
-import { Title } from "./PageCartStyles";
-import { PlusMinusWrapper } from "./PageCartStyles";
-import { PlusMinus } from "./PageCartStyles";
-import { Count } from "./PageCartStyles";
-import { PlusMinusBtn } from "./PageCartStyles";
-import { RemoveWrapper } from "./PageCartStyles";
-import { Remove } from "./PageCartStyles";
+import {
+  CartItemMainWrapper,
+  CartItemImgWrapper,
+  CartTitleWrapper,
+  Title,
+  PlusMinusWrapper,
+  PlusMinus,
+  Count,
+  PlusMinusBtn,
+  RemoveWrapper,
+  Remove,
+} from "./PageCartStyles";
 import {
   plusItem,
   minusItem,
